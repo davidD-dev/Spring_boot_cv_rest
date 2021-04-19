@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Cv</title>
+</head>
+<body>
+    <img th:src="${project.getLogo()}" width="180px" height="60px"/>
+    <h1 th:text="${project.getName()}" ></h1>
+
+    <p th:utext="'Version : ' + ${project.getVersion()}" ></p>
+    <p>Auteurs :</p>
+    <ul th:each="author : ${project.getAuthors()}">
+        <li th:utext="${author.getFullName()}"></li>
+    </ul>
+</body>
+</html>
