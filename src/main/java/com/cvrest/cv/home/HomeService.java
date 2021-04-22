@@ -17,18 +17,19 @@ public class HomeService {
     }
 
     public List<Project> getAll() {
-//        List<Author> authors = new ArrayList<>();
-//        Author author1 = new Author("Anas", "Zabili");
-//        Author author2 = new Author("David", "Deschamps");
-//        authors.add(author1);
-//        authors.add(author2);
-//
-//        return new Project("cv rest", 1.0, authors, "https://upload.wikimedia.org/wikipedia/commons/d/df/Université_de_Rouen.png");
+        // List<Author> authors = new ArrayList<>();
+        // Author author1 = new Author("Anas", "Zabili");
+        // Author author2 = new Author("David", "Deschamps");
+        // authors.add(author1);
+        // authors.add(author2);
+        //
+        // return new Project("cv rest", 1.0, authors,
+        // "https://upload.wikimedia.org/wikipedia/commons/d/df/Université_de_Rouen.png");
         return homeRepository.findAll();
     }
 
     public void addProjet(Project projet) {
-        homeRepository.save(projet);
+        homeRepository.insert(projet);
     }
 
 }

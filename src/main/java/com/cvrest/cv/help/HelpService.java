@@ -33,11 +33,7 @@ public class HelpService {
     // List<Help> methods = Arrays.asList(getHome);
     // return methods;
 
-    helpRepository.save(help);
-  }
-
-  public void addNewStudent(Help help) {
-    helpRepository.save(help);
+    helpRepository.insert(help);
   }
 
 }

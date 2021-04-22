@@ -2,19 +2,17 @@ package com.cvrest.cv.home;
 
 import com.cvrest.cv.home.author.Author;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.annotation.Id;
 import java.util.List;
 
-@Entity
+@Document
 public class Project {
 
     @Id
+    private Long id;
     private String name;
     private double version;
-
-    @OneToMany
     private List<Author> authors;
     private String logo;
 
@@ -59,4 +57,13 @@ public class Project {
     public void setLogo(String logo) {
         this.logo = logo;
     }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
 }

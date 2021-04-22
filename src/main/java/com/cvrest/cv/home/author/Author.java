@@ -1,17 +1,16 @@
 package com.cvrest.cv.home.author;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.annotation.Id;
 
-@Entity
+@Document
 public class Author {
     @Id
-    private String id;
+    private Long id;
     private String firstname;
     private String lastname;
 
-
-    public Author(String firstname, String lastname, String id) {
+    public Author(String firstname, String lastname, Long id) {
         this.firstname = firstname;
         this.lastname = lastname;
         this.id = id;
@@ -21,11 +20,11 @@ public class Author {
 
     }
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

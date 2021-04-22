@@ -2,13 +2,13 @@ package com.cvrest.cv.help;
 
 import java.util.List;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.annotation.Id;
 
-@Entity
+@Document
 public class Help {
   @Id
-  private String id;
+  private Long id;
   // private List<Help> operations;
   private String url;
   private String methode;
@@ -42,6 +42,14 @@ public class Help {
 
   public void setDescription(String description) {
     this.description = description;
+  }
+
+  public Long getId() {
+    return id;
+  }
+
+  public void setId(Long id) {
+    this.id = id;
   }
 
 }

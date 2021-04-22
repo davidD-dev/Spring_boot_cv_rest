@@ -16,7 +16,7 @@ public class AuthorService {
     }
 
     public void addAuthor(Author author) {
-        authorRepository.save(author);
+        authorRepository.insert(author);
     }
 
     public List<Author> getAll() {
