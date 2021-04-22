@@ -20,6 +20,9 @@ public class HomeController {
     @GetMapping("/")
     public String getHome(Model model) {
         List<Project> projects = homeService.getAll();
+        if (projects.size() == 0) {
+            return "vide";
+        }
         model.addAttribute("project", projects.get(0));
         return "projet";
     }
