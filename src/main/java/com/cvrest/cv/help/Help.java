@@ -2,15 +2,21 @@ package com.cvrest.cv.help;
 
 import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class Help {
-  private List<Help> operations;
+  @Id
+  private String id;
+  // private List<Help> operations;
   private String url;
-  private String mehtode;
+  private String methode;
   private String description;
 
-  public Help(String url, String mehtode, String description) {
+  public Help(String url, String methode, String description) {
     this.url = url;
-    this.mehtode = mehtode;
+    this.methode = methode;
     this.description = description;
   }
 
@@ -22,12 +28,12 @@ public class Help {
     this.url = url;
   }
 
-  public String getMehtode() {
-    return mehtode;
+  public String getMethode() {
+    return methode;
   }
 
-  public void setMehtode(String mehtode) {
-    this.mehtode = mehtode;
+  public void setMethode(String methode) {
+    this.methode = methode;
   }
 
   public String getDescription() {

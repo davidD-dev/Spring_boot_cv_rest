@@ -25,6 +25,7 @@ public class HomeController {
     }
 
     @PostMapping(path = "/")
+    @ResponseBody()
     public void addProjet(@RequestBody Project projet) {
         homeService.addProjet(projet);
     }

@@ -8,17 +8,36 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class HelpService {
-  // private HelpRepository helpRepository;
+  private HelpRepository helpRepository;
 
-  // @Autowired
-  // public HelpService(HelpRepository helpRepository) {
-  // this.helpRepository = helpRepository;
-  // }
+  @Autowired
+  public HelpService(HelpRepository helpRepository) {
+    this.helpRepository = helpRepository;
+  }
 
   public List<Help> getHelp() {
     Help getHome = new Help("www.google.fr", "GET", "Le site de google");
     List<Help> methods = Arrays.asList(getHome);
     return methods;
+  }
+
+  public List<Help> getHelps() {
+    // Help getHome = new Help("www.google.fr", "GET", "Le site de google");
+    // List<Help> methods = Arrays.asList(getHome);
+    // return methods;
+    return helpRepository.findAll();
+  }
+
+  public void addHelp(Help help) {
+    // Help getHome = new Help("www.google.fr", "GET", "Le site de google");
+    // List<Help> methods = Arrays.asList(getHome);
+    // return methods;
+
+    helpRepository.save(help);
+  }
+
+  public void addNewStudent(Help help) {
+    helpRepository.save(help);
   }
 
 }
