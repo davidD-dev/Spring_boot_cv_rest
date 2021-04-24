@@ -1,3 +1,7 @@
+GET http://localhost:8080/resume
+Accept: application/xml
+
+###
 POST http://localhost:8080/insert
 Content-Type: application/xml
 
@@ -38,3 +42,5 @@ Content-Type: application/xml
 
 
 ###
+
+

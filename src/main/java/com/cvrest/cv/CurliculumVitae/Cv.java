@@ -1,17 +1,29 @@
-package com.cvrest.cv.CV;
+package com.cvrest.cv.CurliculumVitae;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "Curiculum_Vitae")
-public class CV {
+public class Cv {
     @Id
     private String id;
     private Status status;
     private String cvXml;
 
-    public CV(Status status, String cvXml) {
+    public Cv() {
+
+    }
+
+    public Cv(Status status,
+              String cvXml) {
         this.status = status;
+        this.cvXml = cvXml;
+    }
+    public String getCvXml() {
+        return cvXml;
+    }
+
+    public void setCvXml(String cvXml) {
         this.cvXml = cvXml;
     }
 
@@ -31,11 +43,5 @@ public class CV {
         this.status = status;
     }
 
-    public String getCvXml() {
-        return cvXml;
-    }
 
-    public void setCvXml(String cvXml) {
-        this.cvXml = cvXml;
-    }
 }

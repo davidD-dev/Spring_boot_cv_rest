@@ -1,4 +1,4 @@
-package com.cvrest.cv.CV;
+package com.cvrest.cv.CurliculumVitae;
 
 public enum Status {
     INSERTED,
