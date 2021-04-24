@@ -1,6 +1,7 @@
 package com.cvrest.cv.CV;
 
 import com.cvrest.cv.home.HomeRepository;
+import org.json.XML;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.xml.sax.SAXException;
@@ -28,6 +29,9 @@ public class CVService {
     public void addCv(String cv) {
         if (validateXSD(cv)) {
             System.out.println("C'est valide");
+            String json = XML.toJSONObject(cv).toString();
+            CV cvObj = new CV(Status.INSERTED, json);
+            cvRepository.insert(cvObj);
         } else {
             System.out.println("C'est pas valide");
         }

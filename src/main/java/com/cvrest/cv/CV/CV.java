@@ -10,8 +10,7 @@ public class CV {
     private Status status;
     private String jsonData;
 
-    public CV(String id, Status status, String jsonData) {
-        this.id = id;
+    public CV(Status status, String jsonData) {
         this.status = status;
         this.jsonData = jsonData;
     }

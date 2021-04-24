@@ -23,8 +23,6 @@ public class CVController {
     @ResponseBody
     public void insertCv(@RequestBody String cvXml) {
         cvService.addCv(cvXml);
-
-//        System.out.println(cvXml);
     }
 
 }
