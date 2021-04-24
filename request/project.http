@@ -12,15 +12,9 @@ Content-Type: application/json
     "logo": "https://upload.wikimedia.org/wikipedia/commons/d/df/Université_de_Rouen.png",
     "authors": [
       {
-        "id": "2",
-        "firstname": "Anas",
-        "lastname": "Zabili",
-        "fullName": "Anas Zabili"
+        "id": "6083deb333fda97e1884798c"
       },  {
-        "id": "6083d600bd1f5c4d6fc40b69",
-        "firstname": "David",
-        "lastname": "Deschamps",
-        "fullName": "David Deschamps"
+        "id": "6083ded633fda97e1884798d"
       }
     ]
 }
