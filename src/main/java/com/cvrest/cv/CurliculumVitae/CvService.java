@@ -1,6 +1,8 @@
 package com.cvrest.cv.CurliculumVitae;
 
+import org.bson.Document;
 import org.json.JSONObject;
+import org.json.XML;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.xml.sax.SAXException;
@@ -28,8 +30,7 @@ public class CvService {
 
     public void addCv(String cv) {
         if (validateXSD(cv)) {
-            System.out.println("C'est valide");
-            Cv cvObj = new Cv(Status.INSERTED, cv);
+            Cv cvObj = new Cv(Status.INSERTED, Document.parse(XML.toJSONObject(cv).toString()));
             cvRepository.insert(cvObj);
         } else {
             System.out.println("C'est pas valide");
@@ -59,22 +60,20 @@ public class CvService {
     public String getById(String id) {
         String cv = cvRepository.getXmlById(id);
         System.out.println(cv);
-        return new JSONObject(cv).get("cvXml").toString();
+        
+        // System.out.println(XML.toString(json));
+        // System.out.println(XML.toJSONObject(XML.toString(json)));
+    
+        JSONObject json = new JSONObject(cv);
+
+        System.out.println(" wow wow \n" + json.get("cvXml"));
+        return XML.toString(json);
     }
 
     public ListCv getAllCustom() {
-        List<String> wow = cvRepository.getAllXml();
         List<Cv> cvs = cvRepository.findAll();
         ListCv listCV = new ListCv(cvs);
         System.out.println(listCV.getElements());
-//        List<String> cvList = new ArrayList<>();
-//        for(String cv : cvs) {
-//            cvList.add(new JSONObject(cv).get("cvXml").toString());
-//        }
-//        String allCV = String.join(" ", cvList);
-//        System.out.println(cvs);
-//        System.out.println(XML.toString(cvs.toString()));
-//        return wow;
         return listCV;
     }
 }

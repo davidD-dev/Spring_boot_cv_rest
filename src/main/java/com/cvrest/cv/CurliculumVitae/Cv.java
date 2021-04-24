@@ -1,29 +1,31 @@
 package com.cvrest.cv.CurliculumVitae;
 
+import org.json.JSONObject;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+// import org.bson.Document;
 
 @Document(collection = "Curiculum_Vitae")
 public class Cv {
     @Id
     private String id;
     private Status status;
-    private String cvXml;
+    private  org.bson.Document cvXml;
 
     public Cv() {
 
     }
 
     public Cv(Status status,
-              String cvXml) {
+               org.bson.Document cvXml) {
         this.status = status;
         this.cvXml = cvXml;
     }
-    public String getCvXml() {
+    public  org.bson.Document getCvXml() {
         return cvXml;
     }
 
-    public void setCvXml(String cvXml) {
+    public void setCvXml( org.bson.Document cvXml) {
         this.cvXml = cvXml;
     }
 

@@ -1,4 +1,4 @@
-GET http://localhost:8080/resume
+GET http://localhost:8080/cv?id=608488d87f2c181c6e44ba13
 Accept: application/xml
 
 ###
@@ -6,7 +6,7 @@ POST http://localhost:8080/insert
 Content-Type: application/xml
 
 <?xml version="1.0" encoding="UTF-8"?>
-<cv21 xmlns:cv21="http://univ.fr/cv21" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<cv21>
     <Identite>
         <genre>M.</genre>
         <nom>Coquerel</nom>
