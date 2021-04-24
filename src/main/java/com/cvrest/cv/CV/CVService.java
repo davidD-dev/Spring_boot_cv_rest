@@ -30,7 +30,7 @@ public class CVService {
         if (validateXSD(cv)) {
             System.out.println("C'est valide");
             String json = XML.toJSONObject(cv).toString();
-            CV cvObj = new CV(Status.INSERTED, json);
+            CV cvObj = new CV(Status.INSERTED, cv);
             cvRepository.insert(cvObj);
         } else {
             System.out.println("C'est pas valide");

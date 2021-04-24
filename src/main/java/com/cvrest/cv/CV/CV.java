@@ -3,16 +3,16 @@ package com.cvrest.cv.CV;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document
+@Document(collection = "Curiculum_Vitae")
 public class CV {
     @Id
     private String id;
     private Status status;
-    private String jsonData;
+    private String cvXml;
 
-    public CV(Status status, String jsonData) {
+    public CV(Status status, String cvXml) {
         this.status = status;
-        this.jsonData = jsonData;
+        this.cvXml = cvXml;
     }
 
     public String getId() {
@@ -31,11 +31,11 @@ public class CV {
         this.status = status;
     }
 
-    public String getJsonData() {
-        return jsonData;
+    public String getCvXml() {
+        return cvXml;
     }
 
-    public void setJsonData(String jsonData) {
-        this.jsonData = jsonData;
+    public void setCvXml(String cvXml) {
+        this.cvXml = cvXml;
     }
 }
