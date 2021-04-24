@@ -21,7 +21,7 @@ public class HomeController {
     public String getHome(Model model) {
         List<Project> projects = homeService.getAll();
         if (projects.size() == 0) {
-            return "vide";
+            return "error";
         }
         model.addAttribute("project", projects.get(0));
         return "projet";

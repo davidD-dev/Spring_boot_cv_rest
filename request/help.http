@@ -1,0 +1,18 @@
+
+
+POST http://localhost:8080/help 
+Content-Type: application/json
+
+{
+    "url": "www.google.com",
+    "methode": "GET",
+    "description": "un dev"
+}
+
+###
+
+GET http://localhost:8080/help
+
+
+
+

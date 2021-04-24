@@ -8,7 +8,7 @@ import org.springframework.data.annotation.Id;
 @Document
 public class Help {
   @Id
-  private Long id;
+  private String id;
   // private List<Help> operations;
   private String url;
   private String methode;
@@ -44,11 +44,11 @@ public class Help {
     this.description = description;
   }
 
-  public Long getId() {
+  public String getId() {
     return id;
   }
 
-  public void setId(Long id) {
+  public void setId(String id) {
     this.id = id;
   }
 

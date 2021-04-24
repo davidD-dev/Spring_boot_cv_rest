@@ -2,6 +2,7 @@ package com.cvrest.cv.home;
 
 import com.cvrest.cv.home.author.Author;
 
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.annotation.Id;
 import java.util.List;
@@ -10,9 +11,10 @@ import java.util.List;
 public class Project {
 
     @Id
-    private Long id;
+    private String id;
     private String name;
     private double version;
+    @DBRef
     private List<Author> authors;
     private String logo;
 
@@ -58,11 +60,11 @@ public class Project {
         this.logo = logo;
     }
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 

@@ -1,0 +1,26 @@
+GET http://localhost:8080/
+
+###
+
+POST http://localhost:8080/ 
+Content-Type: application/json
+
+
+{
+    "name": "Projet de xml",
+    "version": "1.0",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/d/df/Université_de_Rouen.png",
+    "authors": [
+      {
+        "id": "2",
+        "firstname": "Anas",
+        "lastname": "Zabili",
+        "fullName": "Anas Zabili"
+      },  {
+        "id": "6083d600bd1f5c4d6fc40b69",
+        "firstname": "David",
+        "lastname": "Deschamps",
+        "fullName": "David Deschamps"
+      }
+    ]
+}
