@@ -8,7 +8,7 @@ Content-Type: application/json
 
 {
     "name": "Projet de xml",
-    "version": "1.0",
+    "version": 1.0,
     "logo": "https://upload.wikimedia.org/wikipedia/commons/d/df/Université_de_Rouen.png",
     "authors": [
       {
