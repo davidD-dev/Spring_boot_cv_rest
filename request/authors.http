@@ -6,8 +6,9 @@ POST http://localhost:8080/authors
 Content-Type: application/json
 
 {
-    "firstname": "David",
-    "lastname": "Deschamps"
+  "id": 1,
+  "firstname": "David",
+  "lastname": "Deschamps"
 }
 
 ###
@@ -15,6 +16,7 @@ POST http://localhost:8080/authors
 Content-Type: application/json
 
 {
+  "id": 2,
   "firstname": "Anas",
   "lastname": "Zabili"
 }

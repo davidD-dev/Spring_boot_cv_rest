@@ -12,9 +12,9 @@ Content-Type: application/json
     "logo": "https://upload.wikimedia.org/wikipedia/commons/d/df/Université_de_Rouen.png",
     "authors": [
       {
-        "id": "6083deb333fda97e1884798c"
+        "id": "1"
       },  {
-        "id": "6083ded633fda97e1884798d"
+        "id": "2"
       }
     ]
 }
