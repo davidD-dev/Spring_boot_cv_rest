@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.xml.sax.SAXException;
 
 import javax.xml.XMLConstants;
+import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.stream.StreamSource;
 import javax.xml.validation.Schema;
 import javax.xml.validation.SchemaFactory;
@@ -17,6 +18,12 @@ import java.io.IOException;
 import java.io.StringReader;
 import java.util.List;
 import java.util.UUID;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerConfigurationException;
+import javax.xml.transform.TransformerException;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.stream.StreamResult;
+import javax.xml.transform.stream.StreamSource;
 
 @Service
 public class CvService {
@@ -59,7 +66,6 @@ public class CvService {
 
     public String getById(String id) {
         String cv = cvRepository.getXmlById(id);
-        System.out.println(cv);
         
         // System.out.println(XML.toString(json));
         // System.out.println(XML.toJSONObject(XML.toString(json)));
@@ -75,5 +81,30 @@ public class CvService {
         ListCv listCV = new ListCv(cvs);
         System.out.println(listCV.getElements());
         return listCV;
+    }
+
+    public String getHtmlById(String id) {
+
+            String cv = cvRepository.getXmlById(id);
+            JSONObject json = new JSONObject(cv);
+            String xml = XML.toString(json.get("cvXml"));
+            System.out.println(xml);
+            TransformerFactory tFactory = TransformerFactory.newInstance();
+            Transformer transformer;
+            try {
+                transformer = tFactory.newTransformer(new StreamSource("xsd/cv21.xslt"));
+                StreamSource sourceFile = new StreamSource(new StringReader(xml));
+                StreamResult resultFile = new StreamResult("src/main/resources/templates/htmlcv.html");
+                transformer.transform(sourceFile, resultFile);
+            } catch (TransformerConfigurationException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            } catch (TransformerException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+
+        
+            return "htmlcv";
     }
 }

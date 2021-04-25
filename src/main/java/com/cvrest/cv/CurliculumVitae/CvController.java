@@ -31,7 +31,12 @@ public class CvController {
         return cvService.getById(id);
     }
 
-    @GetMapping(value = "/resume", produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
+    @GetMapping(value = "/htmlcv")
+    public String getHtmlCvById(@RequestParam String id) {
+        return cvService.getHtmlById(id);
+    }
+
+    @GetMapping(value = "/resume", produces = {MediaType.APPLICATION_XML_VALUE})
     @ResponseBody
     public ListCv getAllCvs() {
         return  cvService.getAllCustom();

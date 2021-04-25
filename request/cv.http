@@ -36,7 +36,7 @@ Content-Type: application/xml
     </competence>
     <divers>
         <lv cert="CLES" lang="fr" nivi="900"/>
-        <autre comment="d'après ma mère" titre="Bg"/>
+        <autre comment="d'après la mère" titre="Bg"/>
     </divers>
 </cv21>
 
