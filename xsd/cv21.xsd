@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="cv21">
+        <xs:complexType>
+            <xs:all>
+                <xs:element ref="Identite"/>
+                <xs:element ref="objectif"/>
+                <xs:element ref="prof" minOccurs="0"/>
+                <xs:element ref="competence"/>
+                <xs:element ref="divers" minOccurs="0"/>
+            </xs:all>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="Identite">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="genre" type="genreType"/>
+                <xs:element name="nom" type="string50"/>
+                <xs:element name="prenom" type="string50"/>
+                <xs:element name="tel" type="telType" minOccurs="0"/>
+                <xs:element name="mel" type="melType" minOccurs="0"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="objectif">
+        <xs:complexType>
+            <xs:attribute name="status" type="statusType"
+                          use="required"/>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="prof">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="expe" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="datedeb" type="xs:date"/>
+                            <xs:element name="datefin" type="xs:date"/>
+                            <xs:element name="titre" type="string128"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:simpleType name="genreType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="M."/>
+            <xs:enumeration value="Mme"/>
+            <xs:enumeration value="Mrs"/>
+            <xs:enumeration value="Miss"/>
+            <xs:enumeration value="Mr"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="statusType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Stage"/>
+            <xs:enumeration value="Emploi"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+
+    <xs:element name="competence">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="diplome" maxOccurs="6">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="date" type="xs:date"/>
+                            <xs:element name="titre" type="string32"/>
+                            <xs:element name="etab" type="string32"/>
+                        </xs:sequence>
+                        <xs:attribute name="niveau" type="niveauType"/>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="certif" minOccurs="0"
+                            maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="deb" type="xs:date"/>
+                            <xs:element name="datefin" type="xs:date"/>
+                            <xs:element name="titre" type="string32"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="divers">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="lv" minOccurs="0" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:attribute name="lang" type="xs:string"/>
+                        <xs:attribute name="cert" type="certType"/>
+                        <xs:attribute name="nivs" type="nivsType"
+                                      use="optional"/>
+                        <xs:attribute name="nivi" type="niviType"
+                                      use="optional"/>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="autre" maxOccurs="3">
+                    <xs:complexType>
+                        <xs:attribute name="titre" type="string32"/>
+                        <xs:attribute name="comment" type="string128"
+                                      use="optional"/>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:simpleType name="string50">
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="50"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="string128">
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="128"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="string32">
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="32"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="telType">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="0[1-9][0-9]{8}"/>
+            <xs:pattern value="0[1-9]\s([0-9]{2}\s){3}[0-9]{2}"/>
+            <xs:pattern value="0\s[1-9]([0-9]{2}\s)([0-9]{3}\s){2}"/>
+            <xs:pattern value="\\+33\s[1-9]\s([0-9]{2}\s){3}[0-9]{2}"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="melType">
+        <xs:restriction base="xs:string">
+            <xs:pattern
+                    value="([0-9a-zA-Z]([-.\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\w]*[0-9a-zA-Z]\.)+[a-zA-Z]{2,9})"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="niveauType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="I"/>
+            <xs:enumeration value="II"/>
+            <xs:enumeration value="III"/>
+            <xs:enumeration value="IV"/>
+            <xs:enumeration value="V"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+
+    <xs:simpleType name="nivsType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="A1"/>
+            <xs:enumeration value="A2"/>
+            <xs:enumeration value="B1"/>
+            <xs:enumeration value="B2"/>
+            <xs:enumeration value="C1"/>
+            <xs:enumeration value="C2"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="certType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="MAT"/>
+            <xs:enumeration value="CLES"/>
+            <xs:enumeration value="TOEIC"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="niviType">
+        <xs:restriction base="xs:integer">
+            <xs:minInclusive value="10"/>
+            <xs:maxInclusive value="990"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

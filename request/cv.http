@@ -1,0 +1,46 @@
+GET http://localhost:8080/cv?id=608488d87f2c181c6e44ba13
+Accept: application/xml
+
+###
+POST http://localhost:8080/insert
+Content-Type: application/xml
+
+<?xml version="1.0" encoding="UTF-8"?>
+<cv21>
+    <Identite>
+        <genre>M.</genre>
+        <nom>Coquerel</nom>
+        <prenom>Ulysse</prenom>
+        <tel>0695847585</tel>
+        <mel>coq@mail.com</mel>
+    </Identite>
+    <objectif status="Stage"/>
+    <prof>
+        <expe>
+            <datedeb>1998-03-13</datedeb>
+            <datefin>2018-05-11</datefin>
+            <titre>Bodybuilder</titre>
+        </expe>
+    </prof>
+    <competence>
+        <diplome niveau="V">
+            <date>2001-01-01</date>
+            <titre>Colmar95</titre>
+            <etab>Atelier</etab>
+        </diplome>
+        <certif>
+            <deb>2001-01-01</deb>
+            <datefin>2001-01-01</datefin>
+            <titre>Certifié par la street</titre>
+        </certif>
+    </competence>
+    <divers>
+        <lv cert="CLES" lang="fr" nivi="900"/>
+        <autre comment="d'après la mère" titre="Bg"/>
+    </divers>
+</cv21>
+
+
+###
+
+
