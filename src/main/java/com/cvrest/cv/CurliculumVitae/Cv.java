@@ -10,22 +10,22 @@ public class Cv {
     @Id
     private String id;
     private Status status;
-    private  org.bson.Document cvXml;
+    private org.bson.Document cvXml;
 
     public Cv() {
 
     }
 
-    public Cv(Status status,
-               org.bson.Document cvXml) {
+    public Cv(Status status, org.bson.Document cvXml) {
         this.status = status;
         this.cvXml = cvXml;
     }
-    public  org.bson.Document getCvXml() {
+
+    public org.bson.Document getCvXml() {
         return cvXml;
     }
 
-    public void setCvXml( org.bson.Document cvXml) {
+    public void setCvXml(org.bson.Document cvXml) {
         this.cvXml = cvXml;
     }
 
@@ -44,6 +44,5 @@ public class Cv {
     public void setStatus(Status status) {
         this.status = status;
     }
-
 
 }
