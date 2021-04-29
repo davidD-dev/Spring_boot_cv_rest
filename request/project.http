@@ -1,8 +1,8 @@
-GET http://localhost:8080/
+GET https://linkedout.cleverapps.io/
 
 ###
 
-POST http://localhost:8080/ 
+POST https://linkedout.cleverapps.io/ 
 Content-Type: application/json
 
 
