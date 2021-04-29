@@ -1,17 +1,107 @@
 
 
-POST http://localhost:8080/help 
+POST https://linkedout.cleverapps.io/help 
 Content-Type: application/json
 
 {
-    "url": "www.google.com",
+    "url": "https://linkedout.cleverapps.io/help",
     "methode": "GET",
-    "description": "un dev"
+    "description": "Route permettant d'obtenir l'aide au format html"
+}
+
+###
+POST https://linkedout.cleverapps.io/help 
+Content-Type: application/json
+
+{
+    "url": "https://linkedout.cleverapps.io/help",
+    "methode": "POST",
+    "description": "Route permettant d'ajouter une aide body attendu au format json"
+}
+
+###
+POST https://linkedout.cleverapps.io/help 
+Content-Type: application/json
+
+{
+    "url": "https://linkedout.cleverapps.io/insert",
+    "methode": "POST",
+    "description": "Route permattant d'ajouter un cv, attend un body un body au format html"
+}
+
+###
+POST https://linkedout.cleverapps.io/help 
+Content-Type: application/json
+
+{
+    "url": "https://linkedout.cleverapps.io/resume",
+    "methode": "GET",
+    "description": "Route renvoyant l'ensemble des cv au format xml"
+}
+
+###
+POST https://linkedout.cleverapps.io/help 
+Content-Type: application/json
+
+{
+    "url": "https://linkedout.cleverapps.io/htmlcv?id=<id>",
+    "methode": "GET",
+    "description": "Route renvoyant le cv d'id <id> au format html"
+}
+
+###
+POST https://linkedout.cleverapps.io/help 
+Content-Type: application/json
+
+{
+    "url": "https://linkedout.cleverapps.io/cv?id=<id>",
+    "methode": "GET",
+    "description": "Route renvoyant le cv d'id <id> au format xml"
+}
+
+###
+POST https://linkedout.cleverapps.io/help 
+Content-Type: application/json
+
+{
+    "url": "https://linkedout.cleverapps.io/authors",
+    "methode": "GET",
+    "description": "Route renvoyant tout les auteurs au format json"
+}
+
+###
+POST https://linkedout.cleverapps.io/help 
+Content-Type: application/json
+
+{
+    "url": "https://linkedout.cleverapps.io/authors",
+    "methode": "POST",
+    "description": "Route permettant d'ajouter un auteur body attendu au format json"
+}
+
+###
+POST https://linkedout.cleverapps.io/help 
+Content-Type: application/json
+
+{
+    "url": "https://linkedout.cleverapps.io/",
+    "methode": "GET",
+    "description": "Route permettant d'obtenir le projet au format html"
+}
+
+###
+POST https://linkedout.cleverapps.io/help 
+Content-Type: application/json
+
+{
+    "url": "https://linkedout.cleverapps.io/",
+    "methode": "POST",
+    "description": "Route permettant d'ajouter un projet body attendu au format json"
 }
 
 ###
 
-GET http://localhost:8080/help
+GET https://linkedout.cleverapps.io/help
 
 
 

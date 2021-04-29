@@ -1,8 +1,8 @@
-GET http://localhost:8080/cv?id=608488d87f2c181c6e44ba13
+GET https://linkedout.cleverapps.io/htmlcv?id=6085834df2b722160fcd07a9
 Accept: application/xml
 
 ###
-POST https://linkedout.cleverapps.io/
+POST https://linkedout.cleverapps.io/insert
 Content-Type: application/xml
 
 <?xml version="1.0" encoding="UTF-8"?>
@@ -42,5 +42,8 @@ Content-Type: application/xml
 
 
 ###
+
+GET https://linkedout.cleverapps.io/resume
+
 
 

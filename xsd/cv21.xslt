@@ -3,9 +3,9 @@
                 xmlns:cv21="http://univ.fr/cv21"
                 exclude-result-prefixes="cv21">
     <xsl:template match="/">
-        <!-- TODO: Auto-generated template -->
-        <xsl:element name="html">
-            <xsl:element name="body">
+            <!-- TODO: Auto-generated template -->
+        <!-- <xsl:element name="html">
+            <xsl:element name="body"> -->
                 <xsl:element name="p">Le 10 février 2021</xsl:element>
                 <xsl:element name="p">CV21 - XSLT V1.0</xsl:element>
 
@@ -33,8 +33,8 @@
                     <xsl:apply-templates select="/cv21/divers/autre"/>
                 </xsl:if>
 
-            </xsl:element>
-        </xsl:element>
+            <!-- </xsl:element>
+        </xsl:element> -->
     </xsl:template>
 
     <xsl:template match="/cv21/objectif">

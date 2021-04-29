@@ -1,20 +1,7 @@
-<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Aide</title>
-  </head>
-  <body>
-    <!-- <img th:src="${project.getLogo()}" width="180px" height="60px"/>
-    <h1 th:text="${project.getName()}" ></h1>
-
-    <p th:utext="'Version : ' + ${project.getVersion()}" ></p> -->
-    <h1>Aide</h1>
-    <p>Ensemble des endpoints :</p>
-    <ul th:each="help : ${helps}">
-      <li th:utext="${help.getUrl()}"></li>
-      <li th:utext="${help.getMethode()}"></li>
-      <li th:utext="${help.getDescription()}"></li>
-    </ul>
-  </body>
-</html>
+<h1>Aide</h1>
+<p>Ensemble des endpoints :</p>
+<ul th:each="help : ${helps}">
+  <li th:utext="${help.getUrl()}"></li>
+  <li th:utext="${help.getMethode()}"></li>
+  <li th:utext="${help.getDescription()}"></li>
+</ul>
