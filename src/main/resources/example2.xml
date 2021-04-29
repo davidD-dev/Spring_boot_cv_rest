@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cv21:cv21 xmlns:cv21="http://univ.fr/cv21"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://univ.fr/cv21 cv21.tp1.xsd ">
+    <cv21:Identite>
+        <genre>Mme</genre>
+        <nom>Boume</nom>
+        <prenom>Soso</prenom>
+        <tel>06 59 58 84 55</tel>
+    </cv21:Identite>
+    <cv21:objectif status="Stage"/>
+    <cv21:competence>
+        <diplome niveau="II">
+            <date>2016-10-02</date>
+            <titre>Parler à des gens</titre>
+            <etab>Fac</etab>
+        </diplome>
+        <certif>
+            <deb>2001-01-01</deb>
+            <datefin>2001-01-01</datefin>
+            <titre>CetifieParLaStreet</titre>
+        </certif>
+        <certif>
+            <deb>2001-01-01</deb>
+            <datefin>2001-01-01</datefin>
+            <titre>Certifié par la ur</titre>
+        </certif>
+    </cv21:competence>
+    <cv21:prof>
+        <expe>
+            <datedeb>1985-01-02</datedeb>
+            <datefin>1985-01-03</datefin>
+            <titre>Employe</titre>
+        </expe>
+    </cv21:prof>
+</cv21:cv21>

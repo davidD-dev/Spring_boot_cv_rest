@@ -2,7 +2,7 @@ GET http://localhost:8080/cv?id=608488d87f2c181c6e44ba13
 Accept: application/xml
 
 ###
-POST http://localhost:8080/insert
+POST https://linkedout.cleverapps.io/
 Content-Type: application/xml
 
 <?xml version="1.0" encoding="UTF-8"?>
@@ -11,7 +11,7 @@ Content-Type: application/xml
         <genre>M.</genre>
         <nom>Coquerel</nom>
         <prenom>Ulysse</prenom>
-        <tel>0695847585</tel>
+        <tel>0790909090</tel>
         <mel>coq@mail.com</mel>
     </Identite>
     <objectif status="Stage"/>
