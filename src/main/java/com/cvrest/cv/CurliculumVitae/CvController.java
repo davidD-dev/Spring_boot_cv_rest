@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
 
+@CrossOrigin
 @Controller
 public class CvController {
 
@@ -19,13 +20,14 @@ public class CvController {
         this.cvService = cvService;
     }
 
-    @PostMapping(value = "/insert", consumes = {MediaType.APPLICATION_XML_VALUE})
+    @CrossOrigin
+    @PostMapping(value = "/insert", consumes = { MediaType.APPLICATION_XML_VALUE })
     @ResponseBody
     public void insertCv(@RequestBody String cvXml) {
         cvService.addCv(cvXml);
     }
 
-    @GetMapping(value = "/cv", produces = {MediaType.APPLICATION_XML_VALUE})
+    @GetMapping(value = "/cv", produces = { MediaType.APPLICATION_XML_VALUE })
     @ResponseBody
     public String getCvById(@RequestParam String id) {
         return cvService.getById(id);
@@ -36,10 +38,10 @@ public class CvController {
         return cvService.getHtmlById(id);
     }
 
-    @GetMapping(value = "/resume", produces = {MediaType.APPLICATION_XML_VALUE})
+    @GetMapping(value = "/resume", produces = { MediaType.APPLICATION_XML_VALUE })
     @ResponseBody
     public ListCv getAllCvs() {
-        return  cvService.getAllCustom();
+        return cvService.getAllCustom();
     }
 
 }

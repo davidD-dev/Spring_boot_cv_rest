@@ -1,4 +1,4 @@
-GET http://localhost:8080/cv?id=608488d87f2c181c6e44ba13
+GET http://localhost:8080/htmlcv?id=608adcf98c1b4e26c6463aa6
 Accept: application/xml
 
 ###
@@ -42,5 +42,8 @@ Content-Type: application/xml
 
 
 ###
+
+GET http://localhost:8080/resume
+
 
 

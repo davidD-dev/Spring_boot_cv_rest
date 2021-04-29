@@ -4,6 +4,7 @@ import com.cvrest.cv.home.author.Author;
 
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.data.annotation.Id;
 import java.util.List;
 
