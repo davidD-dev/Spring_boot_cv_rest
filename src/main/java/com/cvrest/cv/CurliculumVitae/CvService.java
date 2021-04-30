@@ -66,9 +66,6 @@ public class CvService {
 
     public String getById(String id) {
         String cv = cvRepository.getXmlById(id);
-        
-        // System.out.println(XML.toString(json));
-        // System.out.println(XML.toJSONObject(XML.toString(json)));
     
         JSONObject json = new JSONObject(cv);
 
@@ -97,14 +94,32 @@ public class CvService {
                 StreamResult resultFile = new StreamResult("src/main/resources/templates/htmlcv.html");
                 transformer.transform(sourceFile, resultFile);
             } catch (TransformerConfigurationException e) {
-                // TODO Auto-generated catch block
                 e.printStackTrace();
             } catch (TransformerException e) {
-                // TODO Auto-generated catch block
                 e.printStackTrace();
             }
-
-        
             return "htmlcv";
+    }
+
+    public String deleteCv(String id) {
+        cvRepository.deleteById(id);
+        return "Cv " + id + " deleted";
+    }
+
+    public String updateCv(String id, String cvXml) {
+        Optional<Cv> optionnalCv = cvRepository.findById(id);
+        if (!optionnalCv.isPresent()) {
+            return "Modification échoué pas de Cv correspond à l'id" + id;
+        }
+        Cv cv = optionnalCv.get();
+        if (validateXSD(cvXml)) {
+            cv.setCvXml(Document.parse(XML.toJSONObject(cvXml).toString()));
+        } else {
+            return "Modification échoué le xml est invalid";
+        }
+        cv.setStatus(Status.UPDATED);
+        System.out.println(cv);
+        cvRepository.save(cv);
+        return "Cv " + id + " updated";
     }
 }

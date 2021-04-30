@@ -44,4 +44,16 @@ public class CvController {
         return cvService.getAllCustom();
     }
 
+    @DeleteMapping(value = "/delete")
+    @ResponseBody
+    public String deleteCv(@RequestParam String id) {
+        return cvService.deleteCv(id);
+    }
+
+    @PutMapping(value = "/update")
+    @ResponseBody
+    public String updateCv(@RequestParam String id, @RequestBody String cvXml) {
+        return cvService.updateCv(id, cvXml);
+    }
+
 }
