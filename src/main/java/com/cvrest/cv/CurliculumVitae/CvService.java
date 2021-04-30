@@ -17,6 +17,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.StringReader;
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 import javax.xml.transform.Transformer;
 import javax.xml.transform.TransformerConfigurationException;
@@ -44,19 +45,17 @@ public class CvService {
         }
     }
 
-    public static boolean validateXSD(String xml)
-    {
+    public static boolean validateXSD(String xml) {
         try {
-            SchemaFactory factory =
-                    SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
+            SchemaFactory factory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
             Schema schema = factory.newSchema(new File("xsd/cv21.xsd"));
             Validator validator = schema.newValidator();
             validator.validate(new StreamSource(new StringReader(xml)));
-        } catch (IOException e){
-            System.out.println("Exception: "+e.getMessage());
+        } catch (IOException e) {
+            System.out.println("Exception: " + e.getMessage());
             return false;
-        }catch(SAXException e1){
-            System.out.println("SAX Exception: "+e1.getMessage());
+        } catch (SAXException e1) {
+            System.out.println("SAX Exception: " + e1.getMessage());
             return false;
         }
 
@@ -66,7 +65,7 @@ public class CvService {
 
     public String getById(String id) {
         String cv = cvRepository.getXmlById(id);
-    
+
         JSONObject json = new JSONObject(cv);
 
         System.out.println(" wow wow \n" + json.get("cvXml"));
@@ -82,23 +81,23 @@ public class CvService {
 
     public String getHtmlById(String id) {
 
-            String cv = cvRepository.getXmlById(id);
-            JSONObject json = new JSONObject(cv);
-            String xml = XML.toString(json.get("cvXml"));
-            System.out.println(xml);
-            TransformerFactory tFactory = TransformerFactory.newInstance();
-            Transformer transformer;
-            try {
-                transformer = tFactory.newTransformer(new StreamSource("xsd/cv21.xslt"));
-                StreamSource sourceFile = new StreamSource(new StringReader(xml));
-                StreamResult resultFile = new StreamResult("src/main/resources/templates/htmlcv.html");
-                transformer.transform(sourceFile, resultFile);
-            } catch (TransformerConfigurationException e) {
-                e.printStackTrace();
-            } catch (TransformerException e) {
-                e.printStackTrace();
-            }
-            return "htmlcv";
+        String cv = cvRepository.getXmlById(id);
+        JSONObject json = new JSONObject(cv);
+        String xml = XML.toString(json.get("cvXml"));
+        System.out.println(xml);
+        TransformerFactory tFactory = TransformerFactory.newInstance();
+        Transformer transformer;
+        try {
+            transformer = tFactory.newTransformer(new StreamSource("xsd/cv21.xslt"));
+            StreamSource sourceFile = new StreamSource(new StringReader(xml));
+            StreamResult resultFile = new StreamResult("src/main/resources/templates/htmlcv.html");
+            transformer.transform(sourceFile, resultFile);
+        } catch (TransformerConfigurationException e) {
+            e.printStackTrace();
+        } catch (TransformerException e) {
+            e.printStackTrace();
+        }
+        return "htmlcv";
     }
 
     public String deleteCv(String id) {
