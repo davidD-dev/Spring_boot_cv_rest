@@ -1,0 +1,236 @@
+{
+	"info": {
+		"_postman_id": "8ab16800-43f9-48f0-8172-75ee325ade6d",
+		"name": "projet xml cv rest",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Ajoute un auteur",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"id\": 3,\n  \"firstname\": \"Prenom\",\n  \"lastname\": \"Nom\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://linkedout.cleverapps.io/authors ",
+					"protocol": "https",
+					"host": [
+						"linkedout",
+						"cleverapps",
+						"io"
+					],
+					"path": [
+						"authors "
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Liste tous les auteurs",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://linkedout.cleverapps.io/authors",
+					"protocol": "https",
+					"host": [
+						"linkedout",
+						"cleverapps",
+						"io"
+					],
+					"path": [
+						"authors"
+					]
+				},
+				"description": "Les auteurs servents pour ajouter un projet"
+			},
+			"response": []
+		},
+		{
+			"name": "Insert CV",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/xml",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<cv21>\r\n    <Identite>\r\n        <genre>M.</genre>\r\n        <nom>Coquerel</nom>\r\n        <prenom>Ulysse</prenom>\r\n        <tel>0790909090</tel>\r\n        <mel>coq@mail.com</mel>\r\n    </Identite>\r\n    <objectif status=\"Stage\"/>\r\n    <prof>\r\n        <expe>\r\n            <datedeb>1998-03-13</datedeb>\r\n            <datefin>2018-05-11</datefin>\r\n            <titre>Bodybuilder</titre>\r\n        </expe>\r\n    </prof>\r\n    <competence>\r\n        <diplome niveau=\"V\">\r\n            <date>2001-01-01</date>\r\n            <titre>Colmar95</titre>\r\n            <etab>Atelier</etab>\r\n        </diplome>\r\n        <certif>\r\n            <deb>2001-01-01</deb>\r\n            <datefin>2001-01-01</datefin>\r\n            <titre>Certifié par la street</titre>\r\n        </certif>\r\n    </competence>\r\n    <divers>\r\n        <lv cert=\"CLES\" lang=\"fr\" nivi=\"900\"/>\r\n        <autre comment=\"d'après le pere\" titre=\"Bg\"/>\r\n    </divers>\r\n</cv21>"
+				},
+				"url": {
+					"raw": "https://linkedout.cleverapps.io/insert",
+					"protocol": "https",
+					"host": [
+						"linkedout",
+						"cleverapps",
+						"io"
+					],
+					"path": [
+						"insert"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Modifier un cv",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/xml",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<cv21>\r\n    <Identite>\r\n        <genre>M.</genre>\r\n        <nom>Coquerel</nom>\r\n        <prenom>Ulysse</prenom>\r\n        <tel>0790909090</tel>\r\n        <mel>coq@mail.com</mel>\r\n    </Identite>\r\n    <objectif status=\"Stage\"/>\r\n    <prof>\r\n        <expe>\r\n            <datedeb>1998-03-13</datedeb>\r\n            <datefin>2018-05-11</datefin>\r\n            <titre>Sportif</titre>\r\n        </expe>\r\n    </prof>\r\n    <competence>\r\n        <diplome niveau=\"V\">\r\n            <date>2001-01-01</date>\r\n            <titre>Colmar95</titre>\r\n            <etab>Atelier</etab>\r\n        </diplome>\r\n        <certif>\r\n            <deb>2001-01-01</deb>\r\n            <datefin>2001-01-01</datefin>\r\n            <titre>Certifié par la street</titre>\r\n        </certif>\r\n    </competence>\r\n    <divers>\r\n        <lv cert=\"CLES\" lang=\"fr\" nivi=\"900\"/>\r\n        <autre comment=\"d'après le pere\" titre=\"Bg\"/>\r\n    </divers>\r\n</cv21>"
+				},
+				"url": {
+					"raw": "https://linkedout.cleverapps.io/update?id=608bbbb830a5cd372045de52",
+					"protocol": "https",
+					"host": [
+						"linkedout",
+						"cleverapps",
+						"io"
+					],
+					"path": [
+						"update"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "608bbbb830a5cd372045de52"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Liste tous les CV",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\n        \"name\": \"Projet xml\",\n        \"version\": 1.0,\n        \"logo\": \"https://upload.wikimedia.org/wikipedia/commons/d/df/Université_de_Rouen.png\",\n        \"authors\" : [{\"id\":\"1\",\"firstname\":\"David\",\"lastname\":\"Deschamps\"},{\"id\":\"2\",\"firstname\":\"Anas\",\"lastname\":\"Zabili\"}]\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://linkedout.cleverapps.io/resume",
+					"protocol": "https",
+					"host": [
+						"linkedout",
+						"cleverapps",
+						"io"
+					],
+					"path": [
+						"resume"
+					]
+				},
+				"description": "Renvoie tous les cv au format XML"
+			},
+			"response": []
+		},
+		{
+			"name": "Affiche un CV (html)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://linkedout.cleverapps.io/htmlcv?id=608bbbb830a5cd372045de52",
+					"protocol": "https",
+					"host": [
+						"linkedout",
+						"cleverapps",
+						"io"
+					],
+					"path": [
+						"htmlcv"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "608bbbb830a5cd372045de52"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Affiche un CV (xml)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://linkedout.cleverapps.io/cv?id=608bbbb830a5cd372045de52",
+					"protocol": "https",
+					"host": [
+						"linkedout",
+						"cleverapps",
+						"io"
+					],
+					"path": [
+						"cv"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "608bbbb830a5cd372045de52"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Supprime un CV",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://linkedout.cleverapps.io/delete?id=6608bbcc330a5cd372045de53",
+					"protocol": "https",
+					"host": [
+						"linkedout",
+						"cleverapps",
+						"io"
+					],
+					"path": [
+						"delete"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "6608bbcc330a5cd372045de53"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
